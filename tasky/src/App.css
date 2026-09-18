@@ -41,4 +41,8 @@ div {
   font-size: 0.9em;
   margin-top: 10px;
 }
+.priority {
+  font-weight: bold;
+  font-size: 1em;
+}
 
