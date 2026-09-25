@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import ToolTip from '@mui/material/Tooltip';    
+import MenuItem from '@mui/material/MenuItem';
 
 
 
@@ -51,6 +53,23 @@ const AddTaskForm = (props) => {
   </div>
 
   <div>
+  <TextField
+    name="priority"
+    id="outlined-select-priority"
+    label="Priority"
+    select
+    slotProps={{ inputLabel: { shrink: true } }}
+    defaultValue=""
+    onChange={(event) => props.change(event)}
+  >
+    <MenuItem value="Low">Low</MenuItem>
+    <MenuItem value="Medium">Medium</MenuItem>
+    <MenuItem value="High">High</MenuItem>
+  </TextField>  
+</div>
+
+  <div>
+    <ToolTip title="add new task to the array">
     <Button
       type="submit"
       variant="contained"
@@ -63,6 +82,7 @@ const AddTaskForm = (props) => {
     >
       Add Task
     </Button>
+    </ToolTip>
   </div>
 </Box>
 

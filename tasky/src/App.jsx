@@ -90,7 +90,7 @@ function App() {
     align="center"
     gutterBottom
     sx={{
-      backgroundColor: 'gray',
+      backgroundColor: 'purple ',
       textAlign: 'center',
       color: 'white',
       padding: '20px',
@@ -109,7 +109,9 @@ function App() {
       container
       spacing={5}
       sx={{
-        justifyContent: "center"
+        justifyContent: "center",
+        fontSize: "1.2rem",
+        fontFamily: "comic sans ms"
       }}
     >
     {taskState.tasks.map((task, index) => (

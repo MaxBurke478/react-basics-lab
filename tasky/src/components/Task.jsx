@@ -6,6 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import AddIcon from '@mui/icons-material/Add';
+import CheckIcon from '@mui/icons-material/Check';
+import DeleteIcon from '@mui/icons-material/Delete';
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 
 
@@ -17,7 +21,7 @@ const Task = (props) => {
 
 return <Grid
   key={props.id}
-  size={{ xs: 12, md: 4 }}
+  size={{ xs: 12, sm: 6, md: 4 }}
 >
   <Card
     sx={{
@@ -63,13 +67,24 @@ return <Grid
         {props.description}
       </Typography>
       
-            <Typography
-        component="p"
-        variant="subtitle1"
-        align="center"
-      >
-       Priority: {props.priority}
-      </Typography>
+<Typography
+  component="p"
+  variant="subtitle1"
+  align="center"
+  sx={{
+    backgroundColor:
+      props.priority === "High"
+        ? "red"
+        : props.priority === "Medium"
+        ? "orange"
+        : "green",
+    color: "white",
+    padding: "5px",
+    borderRadius: "5px",
+  }}
+>
+  Priority: {props.priority} {props.priority === "High" ? <WarningAmberIcon /> : null}
+</Typography>
     </CardContent>
 
     <CardActions
@@ -84,7 +99,7 @@ return <Grid
         color="success"
         onClick={props.markDone}
       >
-        Done
+       <CheckIcon /> Done
       </Button>
 
       <Button
@@ -93,7 +108,7 @@ return <Grid
         color="error"
         onClick={props.deleteTask}
       >
-        Delete
+        <DeleteIcon /> Delete
       </Button>
     </CardActions>
   </Card>
@@ -102,18 +117,6 @@ return <Grid
 
 
 
-    return (
-          <div className="card" style={{backgroundColor: props.done ? 'lightgrey' : '#5bb4c4'}}>
-            <p className="title">{props.title}</p>
-            <p>Due: {props.deadline}</p>
-            <p>{props.children}</p>
-            <p className="description">{props.description}</p>
-            <p className="priority" style={{backgroundColor: props.priority === 'Low' ? 'lightgrey' : props.priority === 'Medium' ? '#c45bc2' : '#ff6b6b    '}}>Priority: {props.priority}</p>
-            <button onClick={props.markDone} className="doneButton">Done</button>
-            <button className='deleteButton' onClick={props.deleteTask}>Delete</button>
-
-        </div>
-    )
 
 
 }
